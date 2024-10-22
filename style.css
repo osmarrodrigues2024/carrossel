@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    display: flex;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.carrossel {
+    position: relative;
+    max-width: 600px;  Ajuste o tamanho conforme necessário 
+    display: flex: ;
+    justify-self: start;
+    align-self: start;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5));
+    
+}
+
+.carrossel-slides {
+    display: flex;
+    animation: slide 12s infinite;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.3s ease;
+    align-items: center;
+}
+
+.slide {
+    min-width: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.slide.active {
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    margin: 0;
+    height: 20px;
+}
+
+img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+video-background {
+    position: fixed; /* Fica fixo no background */
+    top: 0;
+    left: 0;
+    min-width: 100%; /* Preenche toda a largura da tela */
+    min-height: 100%; /* Preenche toda a altura da tela */
+    z-index: -1; /* Fica atrás de qualquer outro conteúdo */
+    object-fit: cover; /* Garante que o vídeo cubra a tela inteira */
+  }
+
+  /* Estilo para o conteúdo sobreposto */
+  .content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Fica atrás de qualquer outro conteúdo */
+    object-fit: cover; /* Garante que o vídeo cubra a tela inteira */
+  }
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-300px); }
+    50% { transform: translateX(-600px); }
+    75% { transform: translateX(-900px); }
+    100% { transform: translateX(0); }
+  }
